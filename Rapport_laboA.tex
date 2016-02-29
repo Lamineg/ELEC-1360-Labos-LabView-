@@ -54,7 +54,7 @@ Frenquency range : 50 MHz à 2.2 GHz
 
 \subsection{What is the maximum allowable bandwidth supported by the NI-USRP?}
 
-Maximum instantaneous real-time bandwidt : 20MHz pour une taille d'échantillon de 16 bits.
+Maximum instantaneous real-time bandwidth : 20MHz pour une taille d'échantillon de 16 bits.
 
 \subsection{What is the maximum sampling rate of the NI-USRP?}
 
@@ -62,7 +62,11 @@ Maximum instantaneous real-time bandwidt : 20MHz pour une taille d'échantillon 
 
 \subsection{Why do you think the DDC is implemented? What is its main benefit?}
 
+Le digital down converter (DDC), permet d'effectuer une décimation dans le "Hardware" au lieu de le faire dans le software, ce qui permet d'être plus rapide. La décimation est le processus de réduire le taux d'échantillonage d'un signal déjà échantilloné. Cela va donc réduire la mémoire nécessaire pour stocker le signal.
+
 \subsection{In your own words, describe what the bandwidth of an instrument is.}
+
+La largeur de bande d'un instrument est la bande qui couvre l'ensemble des fréquences avec lesquelles le USRP travaille, c'est-à-dire celle sur laquelle le signal va être transmi. Chaque instrument, ici le USRP, va travailler dans une bande qui lui a été prédéfinie.
 
 \subsection{What is meant by the sampling rate of an instrument?}
 
@@ -72,11 +76,24 @@ receiver in a wireless communications system?}
 \section{Reponses aux questions Lab1:Part2}
 
 \subsection{What is the IP Address for your NI USRP?}
+Les adresses IP du NI USRP  sont listées dans le tableau ci-dessous. On peut y lire l'adresse IP du transmetteurs et du receveur. \\ \\
+ \begin{tabular}{|c|c|}
+      \hline
+      TX & RX  \\
+      \hline
+      192.168.10.51 & 192.168.52 \\
+      \hline
+ \end{tabular}
 \subsection{Describe what happens to the spectral response of the transmitted signal
 when you place an obstruction between the antenna of transmitter and
 that of the receiver (i.e., blocking the line of sight component of the
 waveform)}
+Cette expérience n'a pas pu être réaliser puisque les antennes ne sont pas accessibles. 
 \subsection{What are the three elements in the data cluster output from niUSRP
-Fetch Rx Data (poly).vi? Give the name and data type of each element}
+
+\subsection{In RXRF config.vi the IQ rate parameter is used by niUSRP Configure
+Signal.vi. Can theUSRPsupport any arbitrary IQ rate? If not, what will
+the USRP do when an unsupported bandwidth parameter is requested?}
 
 \end{document}
+
