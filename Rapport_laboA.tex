@@ -70,8 +70,13 @@ La largeur de bande d'un instrument est la bande qui couvre l'ensemble des fréq
 
 \subsection{What is meant by the sampling rate of an instrument?}
 
+Le taux d'échantillonage est le nombre d'échantillons, qui sont fait par seconde lors de l'échantillonage d'un signal du domaine continu vers le domaine en temps discret.
+
 \subsection{Why are these specifications important for designing a transmitter and
 receiver in a wireless communications system?}
+
+Ces spécifications sont indispensables car elles vont varier selon les applications. Elles doivent être connues afin de permettre la conception et l'utilisation adéquate de l'instrument.
+En effet, d'abord, chaque instrument occupe en général un pannel de fréquences bien précises qui lui sont propres afin de ne pas interferer avec des signaux non attendus. De plus, elles sont nécessaire pour vérifier que la fréquence d'échantillonage est au moins supérieure à deux fois la fréquence de la largeur de bande (Théorème de Nyquist).
 
 \section{Reponses aux questions Lab1:Part2}
 
@@ -90,10 +95,18 @@ that of the receiver (i.e., blocking the line of sight component of the
 waveform)}
 Cette expérience n'a pas pu être réaliser puisque les antennes ne sont pas accessibles. 
 \subsection{What are the three elements in the data cluster output from niUSRP
-
+Fetch Rx Data (poly).vi? Give the name and data type of each element.}
+data returns the received baseband samples as complex, double-precision floating-point data in a waveform data type, which also includes sampling information.
+\\
+\begin{itemize}
+ \item t0(data type:dbl) specifies the trigger (start) time of the acquired Y array
+\item dt(date type:dbl) specifies the time between values in the Y array. 
+\item Y(data type:dbl) specifies the complex-valued baseband waveform. The real and imaginary parts of this complex data           array correspond to the in-phase (I) and quadrature-phase (Q) data, respectively. 
+\end{itemize}
 \subsection{In RXRF config.vi the IQ rate parameter is used by niUSRP Configure
 Signal.vi. Can theUSRPsupport any arbitrary IQ rate? If not, what will
 the USRP do when an unsupported bandwidth parameter is requested?}
 
-\end{document}
+Non car l'USRP est configué pour surporter un certain taux de IQ. Alors on lui passe un taux de IQ arbitraire, ce dernier est remplacé par une valeur proche de valeurs existantes.
 
+\end{document}
